@@ -6,8 +6,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 
 <title>Propelora AI</title>
-
-<meta name="description" content="Propelora AI property research and real estate deal analysis dashboard.">
+<meta name="description" content="Propelora AI - AI-powered property research and deal analysis.">
 
 <style>
 *{
@@ -21,56 +20,80 @@ html{
 body{
   margin:0;
   font-family:Arial,Helvetica,sans-serif;
-  background:#08111f;
-  color:#eef4ff;
+  background:#07111f;
+  color:#eef5ff;
+}
+
+button,
+input{
+  font:inherit;
+}
+
+button{
+  cursor:pointer;
 }
 
 a{
-  text-decoration:none;
   color:inherit;
+  text-decoration:none;
 }
 
+/* =========================
+   GLOBAL
+========================= */
+
 .container{
-  width:min(1120px,92%);
+  width:min(1150px,92%);
   margin:auto;
 }
 
-/* NAVIGATION */
+.hidden{
+  display:none!important;
+}
+
+.blue{
+  color:#38a9ff;
+}
+
+/* =========================
+   NAV
+========================= */
 
 nav{
   position:sticky;
   top:0;
-  z-index:100;
-  background:rgba(8,17,31,.94);
-  border-bottom:1px solid #1d3049;
-  backdrop-filter:blur(10px);
+  z-index:1000;
+  height:70px;
+  background:rgba(7,17,31,.95);
+  border-bottom:1px solid #1c3149;
+  backdrop-filter:blur(12px);
 }
 
 .nav-inner{
-  height:70px;
+  height:100%;
   display:flex;
   align-items:center;
   justify-content:space-between;
 }
 
 .logo{
-  font-size:22px;
+  font-size:23px;
   font-weight:800;
-  letter-spacing:.5px;
+  letter-spacing:.3px;
 }
 
 .logo span{
-  color:#39a9ff;
+  color:#38a9ff;
 }
 
 .nav-links{
   display:flex;
-  gap:25px;
   align-items:center;
+  gap:25px;
 }
 
 .nav-links a{
-  color:#aebdd0;
+  color:#a9bbcf;
   font-size:14px;
 }
 
@@ -78,172 +101,179 @@ nav{
   color:white;
 }
 
-.nav-button{
+.nav-btn{
+  border:0;
   padding:11px 17px;
-  background:#1687e8;
   border-radius:8px;
-  color:white !important;
+  background:#1688e8;
+  color:white!important;
   font-weight:700;
 }
 
-/* HERO */
+/* =========================
+   HERO
+========================= */
 
 .hero{
-  padding:95px 0 75px;
+  padding:95px 0 70px;
   text-align:center;
   background:
-    radial-gradient(circle at 50% 0%,rgba(29,139,230,.18),transparent 45%);
+    radial-gradient(
+      circle at 50% 0%,
+      rgba(34,145,235,.2),
+      transparent 48%
+    );
 }
 
 .badge{
   display:inline-block;
-  padding:8px 13px;
-  border:1px solid #23496b;
+  padding:8px 14px;
+  border:1px solid #275274;
   border-radius:999px;
-  background:#0c1b2e;
-  color:#69bcff;
+  background:#0b1c30;
+  color:#69bdff;
   font-size:13px;
   margin-bottom:20px;
 }
 
 .hero h1{
-  font-size:clamp(42px,7vw,76px);
-  line-height:1;
   margin:0 auto 22px;
-  max-width:900px;
+  max-width:950px;
+  font-size:clamp(42px,7vw,78px);
+  line-height:1;
 }
 
 .hero h1 span{
-  color:#39a9ff;
+  color:#38a9ff;
 }
 
-.hero p{
-  max-width:700px;
-  margin:0 auto;
-  color:#aebdd0;
+.hero-text{
+  max-width:720px;
+  margin:auto;
+  color:#9db1c7;
   font-size:18px;
   line-height:1.7;
 }
 
 .hero-buttons{
-  margin-top:32px;
   display:flex;
   justify-content:center;
-  gap:14px;
+  gap:13px;
   flex-wrap:wrap;
+  margin-top:32px;
 }
 
-.button{
-  display:inline-block;
-  padding:14px 22px;
+.btn{
+  border:1px solid #28435e;
   border-radius:9px;
+  padding:14px 22px;
+  color:white;
+  background:#0c1b2d;
   font-weight:700;
-  border:1px solid #2a4561;
 }
 
-.button-primary{
-  background:#1687e8;
-  border-color:#1687e8;
+.btn-primary{
+  background:#1688e8;
+  border-color:#1688e8;
 }
 
-.button-primary:hover{
-  background:#0877d3;
+.btn-primary:hover{
+  background:#0876cf;
 }
 
-.button-secondary{
-  background:#0d1a2b;
+.btn:hover{
+  transform:translateY(-1px);
 }
 
-.button-secondary:hover{
-  background:#13253b;
-}
+/* =========================
+   DASHBOARD PREVIEW
+========================= */
 
-/* DASHBOARD */
-
-.dashboard{
-  margin-top:45px;
-  background:#0c1829;
-  border:1px solid #213650;
-  border-radius:18px;
+.preview{
+  margin-top:48px;
   padding:20px;
-  box-shadow:0 25px 80px rgba(0,0,0,.35);
   text-align:left;
+  border:1px solid #223b57;
+  border-radius:18px;
+  background:#0b1829;
+  box-shadow:0 25px 80px rgba(0,0,0,.35);
 }
 
-.dashboard-top{
+.preview-top{
   display:flex;
   justify-content:space-between;
-  gap:20px;
-  align-items:center;
   margin-bottom:18px;
 }
 
-.dashboard-title{
+.preview-title{
   font-weight:800;
 }
 
-.status{
-  color:#58d68d;
+.online{
+  color:#55d98b;
   font-size:13px;
 }
 
-.search{
-  background:#08111f;
-  border:1px solid #243c57;
+.search-box{
+  border:1px solid #253f5c;
   border-radius:10px;
   padding:14px;
-  color:#9db0c6;
-  margin-bottom:18px;
+  color:#8298af;
+  background:#07111f;
 }
 
-.stats{
+.preview-stats{
   display:grid;
   grid-template-columns:repeat(4,1fr);
   gap:12px;
+  margin-top:14px;
 }
 
-.stat{
+.preview-stat{
   padding:17px;
-  border-radius:12px;
-  background:#101f33;
-  border:1px solid #20364f;
+  border:1px solid #203650;
+  border-radius:11px;
+  background:#102036;
 }
 
-.stat-label{
-  color:#8296ad;
-  font-size:12px;
-  margin-bottom:8px;
+.preview-stat small{
+  display:block;
+  color:#8195ab;
+  margin-bottom:7px;
 }
 
-.stat-value{
+.preview-stat strong{
   font-size:22px;
-  font-weight:800;
 }
 
-/* SECTIONS */
+/* =========================
+   SECTIONS
+========================= */
 
 section{
   padding:80px 0;
 }
 
-.section-heading{
+.heading{
   text-align:center;
   margin-bottom:45px;
 }
 
-.section-heading h2{
-  font-size:36px;
+.heading h2{
   margin:0 0 12px;
+  font-size:36px;
 }
 
-.section-heading p{
-  color:#91a5bc;
-  max-width:650px;
+.heading p{
+  max-width:680px;
   margin:auto;
+  color:#8fa4ba;
   line-height:1.6;
 }
 
-/* FEATURES */
+/* =========================
+   FEATURES
+========================= */
 
 .features{
   display:grid;
@@ -252,22 +282,22 @@ section{
 }
 
 .card{
-  background:#0c1829;
-  border:1px solid #20364f;
-  border-radius:15px;
   padding:25px;
+  border:1px solid #203650;
+  border-radius:15px;
+  background:#0b1829;
 }
 
-.icon{
+.card-icon{
   width:45px;
   height:45px;
   display:flex;
   align-items:center;
   justify-content:center;
   border-radius:10px;
-  background:#102a43;
-  color:#54b7ff;
-  font-size:21px;
+  background:#102b45;
+  color:#4bb3ff;
+  font-weight:800;
   margin-bottom:17px;
 }
 
@@ -276,12 +306,14 @@ section{
 }
 
 .card p{
-  color:#91a5bc;
-  line-height:1.6;
   margin:0;
+  color:#8fa4ba;
+  line-height:1.6;
 }
 
-/* HOW IT WORKS */
+/* =========================
+   HOW
+========================= */
 
 .steps{
   display:grid;
@@ -290,21 +322,22 @@ section{
 }
 
 .step{
-  position:relative;
-  padding:28px;
-  background:#0c1829;
-  border:1px solid #20364f;
+  padding:27px;
+  border:1px solid #203650;
   border-radius:15px;
+  background:#0b1829;
 }
 
-.number{
-  font-size:14px;
+.step-number{
   color:#39a9ff;
   font-weight:800;
-  margin-bottom:14px;
+  font-size:13px;
+  margin-bottom:12px;
 }
 
-/* PRICING */
+/* =========================
+   PRICING
+========================= */
 
 .pricing{
   display:grid;
@@ -313,32 +346,38 @@ section{
 }
 
 .price-card{
-  background:#0c1829;
-  border:1px solid #20364f;
-  border-radius:15px;
   padding:28px;
+  border:1px solid #203650;
+  border-radius:15px;
+  background:#0b1829;
 }
 
 .price-card.featured{
-  border-color:#1687e8;
-  box-shadow:0 0 0 1px rgba(22,135,232,.2);
+  border-color:#1688e8;
+  box-shadow:0 0 0 1px rgba(22,136,232,.18);
 }
 
 .plan{
-  color:#9db0c6;
-  font-size:14px;
+  color:#94a8bd;
+  font-size:13px;
+  font-weight:700;
 }
 
 .price{
-  font-size:40px;
+  margin:12px 0 7px;
+  font-size:42px;
   font-weight:800;
-  margin:12px 0 5px;
 }
 
 .price span{
-  font-size:15px;
-  color:#8194aa;
+  font-size:14px;
+  color:#8194a9;
   font-weight:normal;
+}
+
+.price-card p{
+  color:#8fa4ba;
+  line-height:1.5;
 }
 
 .price-card ul{
@@ -349,40 +388,40 @@ section{
 
 .price-card li{
   padding:9px 0;
-  color:#b4c2d2;
-  border-bottom:1px solid #182b42;
+  border-bottom:1px solid #192d44;
+  color:#b2c1d0;
 }
 
-.price-card li:last-child{
-  border-bottom:0;
-}
-
-/* CTA */
+/* =========================
+   CTA
+========================= */
 
 .cta{
   text-align:center;
-  background:#0b192a;
   border-top:1px solid #1b3048;
   border-bottom:1px solid #1b3048;
+  background:#091727;
 }
 
 .cta h2{
-  font-size:38px;
   margin:0 0 14px;
+  font-size:38px;
 }
 
 .cta p{
-  color:#91a5bc;
   max-width:650px;
   margin:0 auto 28px;
+  color:#91a5bb;
   line-height:1.6;
 }
 
-/* FOOTER */
+/* =========================
+   FOOTER
+========================= */
 
 footer{
   padding:35px 0;
-  color:#72869d;
+  color:#71869d;
   font-size:13px;
 }
 
@@ -393,522 +432,129 @@ footer{
   flex-wrap:wrap;
 }
 
-.footer-logo{
+.footer-brand{
   color:white;
   font-weight:800;
 }
 
-/* MOBILE */
+/* =========================
+   AUTH OVERLAY
+========================= */
 
-@media(max-width:800px){
-
-  .nav-links{
-    display:none;
-  }
-
-  .stats{
-    grid-template-columns:repeat(2,1fr);
-  }
-
-  .features,
-  .steps,
-  .pricing{
-    grid-template-columns:1fr;
-  }
-
-  .hero{
-    padding-top:65px;
-  }
-
-  .dashboard-top{
-    align-items:flex-start;
-    flex-direction:column;
-  }
-
-  section{
-    padding:60px 0;
-  }
+.auth-screen{
+  position:fixed;
+  inset:0;
+  z-index:3000;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:20px;
+  background:rgba(3,9,17,.96);
+  overflow:auto;
 }
 
-@media(max-width:500px){
-
-  .stats{
-    grid-template-columns:1fr;
-  }
-
-  .hero h1{
-    font-size:42px;
-  }
-
-  .hero p{
-    font-size:16px;
-  }
-
-  .section-heading h2{
-    font-size:30px;
-  }
-
-  .cta h2{
-    font-size:30px;
-  }
+.auth-box{
+  width:min(440px,100%);
+  padding:32px;
+  border:1px solid #24415e;
+  border-radius:18px;
+  background:#0b1829;
+  box-shadow:0 25px 90px rgba(0,0,0,.55);
 }
-</style>
-</head>
 
-<body>
-
-<!-- NAVIGATION -->
-
-<nav>
-  <div class="container nav-inner">
-
-    <a href="#" class="logo">
-      Propelora <span>AI</span>
-    </a>
-
-    <div class="nav-links">
-      <a href="#features">Features</a>
-      <a href="#how">How It Works</a>
-      <a href="#pricing">Pricing</a>
-      <a href="#contact" class="nav-button">Get Started</a>
-    </div>
-
-  </div>
-</nav>
-
-
-<!-- HERO -->
-
-<header class="hero">
-
-  <div class="container">
-
-    <div class="badge">
-      AI-Powered Property Research
-    </div>
-
-    <h1>
-      Find Better Real Estate Deals With
-      <span>AI</span>
-    </h1>
-
-    <p>
-      Propelora AI helps investors research properties,
-      analyze potential deals, estimate renovation costs,
-      and organize opportunities in one simple dashboard.
-    </p>
-
-    <div class="hero-buttons">
-      <a href="#pricing" class="button button-primary">
-        Get Started
-      </a>
-
-      <a href="#features" class="button button-secondary">
-        Explore Features
-      </a>
-    </div>
-
-
-    <!-- DASHBOARD PREVIEW -->
-
-    <div class="dashboard">
-
-      <div class="dashboard-top">
-
-        <div>
-          <div class="dashboard-title">
-            Property Research Dashboard
-          </div>
-
-          <div style="color:#7389a1;font-size:12px;margin-top:5px;">
-            AI-powered deal analysis
-          </div>
-        </div>
-
-        <div class="status">
-          ● System Online
-        </div>
-
-      </div>
-
-      <div class="search">
-        🔎 Search properties, addresses, ZIP codes or markets...
-      </div>
-
-      <div class="stats">
-
-        <div class="stat">
-          <div class="stat-label">Properties Analyzed</div>
-          <div class="stat-value">1,284</div>
-        </div>
-
-        <div class="stat">
-          <div class="stat-label">Potential Deals</div>
-          <div class="stat-value">147</div>
-        </div>
-
-        <div class="stat">
-          <div class="stat-label">Avg. Deal Spread</div>
-          <div class="stat-value">$42K</div>
-        </div>
-
-        <div class="stat">
-          <div class="stat-label">Markets Tracked</div>
-          <div class="stat-value">24</div>
-        </div>
-
-      </div>
-
-    </div>
-
-  </div>
-
-</header>
-
-
-<!-- FEATURES -->
-
-<section id="features">
-
-  <div class="container">
-
-    <div class="section-heading">
-
-      <h2>Everything You Need to Research Deals</h2>
-
-      <p>
-        Built to simplify property research and help organize
-        the information investors need before making a decision.
-      </p>
-
-    </div>
-
-
-    <div class="features">
-
-      <div class="card">
-
-        <div class="icon">⌕</div>
-
-        <h3>Property Research</h3>
-
-        <p>
-          Quickly organize property information including
-          location, estimated value, property characteristics,
-          and other research data.
-        </p>
-
-      </div>
-
-
-      <div class="card">
-
-        <div class="icon">◆</div>
-
-        <h3>Deal Analysis</h3>
-
-        <p>
-          Review purchase price, estimated repairs,
-          potential resale value, and projected deal
-          numbers in one place.
-        </p>
-
-      </div>
-
-
-      <div class="card">
-
-        <div class="icon">▣</div>
-
-        <h3>Market Research</h3>
-
-        <p>
-          Compare neighborhoods and markets using organized
-          property information and research tools.
-        </p>
-
-      </div>
-
-
-      <div class="card">
-
-        <div class="icon">↗</div>
-
-        <h3>Investment Estimates</h3>
-
-        <p>
-          Create preliminary estimates for renovation costs,
-          potential margins, and other investment assumptions.
-        </p>
-
-      </div>
-
-
-      <div class="card">
-
-        <div class="icon">✓</div>
-
-        <h3>Deal Organization</h3>
-
-        <p>
-          Keep properties, notes, assumptions, and research
-          organized so opportunities are easier to review.
-        </p>
-
-      </div>
-
-
-      <div class="card">
-
-        <div class="icon">AI</div>
-
-        <h3>AI Assistance</h3>
-
-        <p>
-          Use AI-assisted workflows to speed up repetitive
-          property research and analysis tasks.
-        </p>
-
-      </div>
-
-    </div>
-
-  </div>
-
-</section>
-
-
-<!-- HOW IT WORKS -->
-
-<section id="how">
-
-  <div class="container">
-
-    <div class="section-heading">
-
-      <h2>How Propelora AI Works</h2>
-
-      <p>
-        A simple workflow for turning property information
-        into organized investment research.
-      </p>
-
-    </div>
-
-
-    <div class="steps">
-
-      <div class="step">
-
-        <div class="number">STEP 01</div>
-
-        <h3>Find a Property</h3>
-
-        <p>
-          Enter a property, address, ZIP code, or market
-          you want to research.
-        </p>
-
-      </div>
-
-
-      <div class="step">
-
-        <div class="number">STEP 02</div>
-
-        <h3>Analyze the Deal</h3>
-
-        <p>
-          Review the available property information and
-          enter your purchase and renovation assumptions.
-        </p>
-
-      </div>
-
-
-      <div class="step">
-
-        <div class="number">STEP 03</div>
-
-        <h3>Review the Opportunity</h3>
-
-        <p>
-          Organize your findings and use the results to
-          continue your own investment research.
-        </p>
-
-      </div>
-
-    </div>
-
-  </div>
-
-</section>
-
-
-<!-- PRICING -->
-
-<section id="pricing">
-
-  <div class="container">
-
-    <div class="section-heading">
-
-      <h2>Simple Pricing</h2>
-
-      <p>
-        Choose the plan that matches the amount of property
-        research you want to perform.
-      </p>
-
-    </div>
-
-
-    <div class="pricing">
-
-
-      <div class="price-card">
-
-        <div class="plan">
-          STARTER
-        </div>
-
-        <div class="price">
-          $19 <span>/month</span>
-        </div>
-
-        <p style="color:#91a5bc;">
-          For individuals getting started with property research.
-        </p>
-
-        <ul>
-          <li>✓ Property research tools</li>
-          <li>✓ Deal analysis workspace</li>
-          <li>✓ Basic AI assistance</li>
-          <li>✓ Saved research</li>
-        </ul>
-
-        <a href="#contact" class="button button-secondary">
-          Get Started
-        </a>
-
-      </div>
-
-
-      <div class="price-card featured">
-
-        <div class="plan">
-          PRO
-        </div>
-
-        <div class="price">
-          $49 <span>/month</span>
-        </div>
-
-        <p style="color:#91a5bc;">
-          For active investors researching multiple opportunities.
-        </p>
-
-        <ul>
-          <li>✓ Everything in Starter</li>
-          <li>✓ Advanced deal analysis</li>
-          <li>✓ Market research tools</li>
-          <li>✓ More AI-assisted research</li>
-          <li>✓ Priority features</li>
-        </ul>
-
-        <a href="#contact" class="button button-primary">
-          Get Started
-        </a>
-
-      </div>
-
-
-      <div class="price-card">
-
-        <div class="plan">
-          PROFESSIONAL
-        </div>
-
-        <div class="price">
-          $99 <span>/month</span>
-        </div>
-
-        <p style="color:#91a5bc;">
-          For serious investors and growing real estate businesses.
-        </p>
-
-        <ul>
-          <li>✓ Everything in Pro</li>
-          <li>✓ Advanced workflows</li>
-          <li>✓ Higher usage limits</li>
-          <li>✓ Expanded research tools</li>
-          <li>✓ Business features</li>
-        </ul>
-
-        <a href="#contact" class="button button-secondary">
-          Get Started
-        </a>
-
-      </div>
-
-    </div>
-
-  </div>
-
-</section>
-
-
-<!-- CTA -->
-
-<section class="cta" id="contact">
-
-  <div class="container">
-
-    <h2>Start Researching Smarter</h2>
-
-    <p>
-      Propelora AI is designed to help real estate investors
-      organize research and analyze potential opportunities faster.
-    </p>
-
-    <!-- CHANGE THIS EMAIL -->
-    <a
-      href="mailto:YOUR_EMAIL_HERE"
-      class="button button-primary">
-      Contact Propelora AI
-    </a>
-
-  </div>
-
-</section>
-
-
-<!-- FOOTER -->
-
-<footer>
-
-  <div class="container footer-inner">
-
-    <div>
-      <div class="footer-logo">
-        Propelora AI
-      </div>
-
-      <div style="margin-top:7px;">
-        AI-powered property research and deal analysis.
-      </div>
-    </div>
-
-    <div>
-      © 2026 Propelora AI. All rights reserved.
-    </div>
-
-  </div>
-
-</footer>
-
-
-</body>
-</html>
+.auth-logo{
+  text-align:center;
+  font-size:25px;
+  font-weight:800;
+  margin-bottom:25px;
+}
+
+.auth-logo span{
+  color:#38a9ff;
+}
+
+.auth-box h2{
+  margin:0 0 8px;
+  text-align:center;
+}
+
+.auth-subtitle{
+  text-align:center;
+  color:#8499b0;
+  font-size:14px;
+  margin-bottom:25px;
+}
+
+.form-group{
+  margin-bottom:15px;
+}
+
+.form-group label{
+  display:block;
+  color:#b8c6d5;
+  font-size:13px;
+  margin-bottom:7px;
+}
+
+.form-group input{
+  width:100%;
+  padding:13px;
+  border-radius:8px;
+  border:1px solid #29435e;
+  outline:none;
+  background:#07111f;
+  color:white;
+}
+
+.form-group input:focus{
+  border-color:#238fef;
+}
+
+.auth-submit{
+  width:100%;
+  padding:14px;
+  border:0;
+  border-radius:9px;
+  background:#1688e8;
+  color:white;
+  font-weight:800;
+  margin-top:5px;
+}
+
+.auth-submit:hover{
+  background:#0876cf;
+}
+
+.auth-switch{
+  text-align:center;
+  margin-top:20px;
+  color:#8298ae;
+  font-size:14px;
+}
+
+.auth-switch button,
+.forgot{
+  border:0;
+  background:none;
+  color:#42adff;
+  cursor:pointer;
+}
+
+.close-auth{
+  position:absolute;
+  top:20px;
+  right:25px;
+  border:0;
+  background:none;
+  color:#a9bbce;
+  font-size:25px;
+}
+
+/* =========================
+   DASHBOARD
+========================= */
+
+.app{
+  min-height:100vh;
+  background:#0
 ```
