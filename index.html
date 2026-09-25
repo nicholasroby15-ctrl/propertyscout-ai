@@ -271,5 +271,644 @@ section{
   margin-bottom:17px;
 }
 
-.card h3
+.card h3{
+  margin:0 0 10px;
+}
+
+.card p{
+  color:#91a5bc;
+  line-height:1.6;
+  margin:0;
+}
+
+/* HOW IT WORKS */
+
+.steps{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:18px;
+}
+
+.step{
+  position:relative;
+  padding:28px;
+  background:#0c1829;
+  border:1px solid #20364f;
+  border-radius:15px;
+}
+
+.number{
+  font-size:14px;
+  color:#39a9ff;
+  font-weight:800;
+  margin-bottom:14px;
+}
+
+/* PRICING */
+
+.pricing{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:18px;
+}
+
+.price-card{
+  background:#0c1829;
+  border:1px solid #20364f;
+  border-radius:15px;
+  padding:28px;
+}
+
+.price-card.featured{
+  border-color:#1687e8;
+  box-shadow:0 0 0 1px rgba(22,135,232,.2);
+}
+
+.plan{
+  color:#9db0c6;
+  font-size:14px;
+}
+
+.price{
+  font-size:40px;
+  font-weight:800;
+  margin:12px 0 5px;
+}
+
+.price span{
+  font-size:15px;
+  color:#8194aa;
+  font-weight:normal;
+}
+
+.price-card ul{
+  list-style:none;
+  padding:0;
+  margin:25px 0;
+}
+
+.price-card li{
+  padding:9px 0;
+  color:#b4c2d2;
+  border-bottom:1px solid #182b42;
+}
+
+.price-card li:last-child{
+  border-bottom:0;
+}
+
+/* CTA */
+
+.cta{
+  text-align:center;
+  background:#0b192a;
+  border-top:1px solid #1b3048;
+  border-bottom:1px solid #1b3048;
+}
+
+.cta h2{
+  font-size:38px;
+  margin:0 0 14px;
+}
+
+.cta p{
+  color:#91a5bc;
+  max-width:650px;
+  margin:0 auto 28px;
+  line-height:1.6;
+}
+
+/* FOOTER */
+
+footer{
+  padding:35px 0;
+  color:#72869d;
+  font-size:13px;
+}
+
+.footer-inner{
+  display:flex;
+  justify-content:space-between;
+  gap:20px;
+  flex-wrap:wrap;
+}
+
+.footer-logo{
+  color:white;
+  font-weight:800;
+}
+
+/* MOBILE */
+
+@media(max-width:800px){
+
+  .nav-links{
+    display:none;
+  }
+
+  .stats{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  .features,
+  .steps,
+  .pricing{
+    grid-template-columns:1fr;
+  }
+
+  .hero{
+    padding-top:65px;
+  }
+
+  .dashboard-top{
+    align-items:flex-start;
+    flex-direction:column;
+  }
+
+  section{
+    padding:60px 0;
+  }
+}
+
+@media(max-width:500px){
+
+  .stats{
+    grid-template-columns:1fr;
+  }
+
+  .hero h1{
+    font-size:42px;
+  }
+
+  .hero p{
+    font-size:16px;
+  }
+
+  .section-heading h2{
+    font-size:30px;
+  }
+
+  .cta h2{
+    font-size:30px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAVIGATION -->
+
+<nav>
+  <div class="container nav-inner">
+
+    <a href="#" class="logo">
+      Propelora <span>AI</span>
+    </a>
+
+    <div class="nav-links">
+      <a href="#features">Features</a>
+      <a href="#how">How It Works</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#contact" class="nav-button">Get Started</a>
+    </div>
+
+  </div>
+</nav>
+
+
+<!-- HERO -->
+
+<header class="hero">
+
+  <div class="container">
+
+    <div class="badge">
+      AI-Powered Property Research
+    </div>
+
+    <h1>
+      Find Better Real Estate Deals With
+      <span>AI</span>
+    </h1>
+
+    <p>
+      Propelora AI helps investors research properties,
+      analyze potential deals, estimate renovation costs,
+      and organize opportunities in one simple dashboard.
+    </p>
+
+    <div class="hero-buttons">
+      <a href="#pricing" class="button button-primary">
+        Get Started
+      </a>
+
+      <a href="#features" class="button button-secondary">
+        Explore Features
+      </a>
+    </div>
+
+
+    <!-- DASHBOARD PREVIEW -->
+
+    <div class="dashboard">
+
+      <div class="dashboard-top">
+
+        <div>
+          <div class="dashboard-title">
+            Property Research Dashboard
+          </div>
+
+          <div style="color:#7389a1;font-size:12px;margin-top:5px;">
+            AI-powered deal analysis
+          </div>
+        </div>
+
+        <div class="status">
+          ● System Online
+        </div>
+
+      </div>
+
+      <div class="search">
+        🔎 Search properties, addresses, ZIP codes or markets...
+      </div>
+
+      <div class="stats">
+
+        <div class="stat">
+          <div class="stat-label">Properties Analyzed</div>
+          <div class="stat-value">1,284</div>
+        </div>
+
+        <div class="stat">
+          <div class="stat-label">Potential Deals</div>
+          <div class="stat-value">147</div>
+        </div>
+
+        <div class="stat">
+          <div class="stat-label">Avg. Deal Spread</div>
+          <div class="stat-value">$42K</div>
+        </div>
+
+        <div class="stat">
+          <div class="stat-label">Markets Tracked</div>
+          <div class="stat-value">24</div>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</header>
+
+
+<!-- FEATURES -->
+
+<section id="features">
+
+  <div class="container">
+
+    <div class="section-heading">
+
+      <h2>Everything You Need to Research Deals</h2>
+
+      <p>
+        Built to simplify property research and help organize
+        the information investors need before making a decision.
+      </p>
+
+    </div>
+
+
+    <div class="features">
+
+      <div class="card">
+
+        <div class="icon">⌕</div>
+
+        <h3>Property Research</h3>
+
+        <p>
+          Quickly organize property information including
+          location, estimated value, property characteristics,
+          and other research data.
+        </p>
+
+      </div>
+
+
+      <div class="card">
+
+        <div class="icon">◆</div>
+
+        <h3>Deal Analysis</h3>
+
+        <p>
+          Review purchase price, estimated repairs,
+          potential resale value, and projected deal
+          numbers in one place.
+        </p>
+
+      </div>
+
+
+      <div class="card">
+
+        <div class="icon">▣</div>
+
+        <h3>Market Research</h3>
+
+        <p>
+          Compare neighborhoods and markets using organized
+          property information and research tools.
+        </p>
+
+      </div>
+
+
+      <div class="card">
+
+        <div class="icon">↗</div>
+
+        <h3>Investment Estimates</h3>
+
+        <p>
+          Create preliminary estimates for renovation costs,
+          potential margins, and other investment assumptions.
+        </p>
+
+      </div>
+
+
+      <div class="card">
+
+        <div class="icon">✓</div>
+
+        <h3>Deal Organization</h3>
+
+        <p>
+          Keep properties, notes, assumptions, and research
+          organized so opportunities are easier to review.
+        </p>
+
+      </div>
+
+
+      <div class="card">
+
+        <div class="icon">AI</div>
+
+        <h3>AI Assistance</h3>
+
+        <p>
+          Use AI-assisted workflows to speed up repetitive
+          property research and analysis tasks.
+        </p>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- HOW IT WORKS -->
+
+<section id="how">
+
+  <div class="container">
+
+    <div class="section-heading">
+
+      <h2>How Propelora AI Works</h2>
+
+      <p>
+        A simple workflow for turning property information
+        into organized investment research.
+      </p>
+
+    </div>
+
+
+    <div class="steps">
+
+      <div class="step">
+
+        <div class="number">STEP 01</div>
+
+        <h3>Find a Property</h3>
+
+        <p>
+          Enter a property, address, ZIP code, or market
+          you want to research.
+        </p>
+
+      </div>
+
+
+      <div class="step">
+
+        <div class="number">STEP 02</div>
+
+        <h3>Analyze the Deal</h3>
+
+        <p>
+          Review the available property information and
+          enter your purchase and renovation assumptions.
+        </p>
+
+      </div>
+
+
+      <div class="step">
+
+        <div class="number">STEP 03</div>
+
+        <h3>Review the Opportunity</h3>
+
+        <p>
+          Organize your findings and use the results to
+          continue your own investment research.
+        </p>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- PRICING -->
+
+<section id="pricing">
+
+  <div class="container">
+
+    <div class="section-heading">
+
+      <h2>Simple Pricing</h2>
+
+      <p>
+        Choose the plan that matches the amount of property
+        research you want to perform.
+      </p>
+
+    </div>
+
+
+    <div class="pricing">
+
+
+      <div class="price-card">
+
+        <div class="plan">
+          STARTER
+        </div>
+
+        <div class="price">
+          $19 <span>/month</span>
+        </div>
+
+        <p style="color:#91a5bc;">
+          For individuals getting started with property research.
+        </p>
+
+        <ul>
+          <li>✓ Property research tools</li>
+          <li>✓ Deal analysis workspace</li>
+          <li>✓ Basic AI assistance</li>
+          <li>✓ Saved research</li>
+        </ul>
+
+        <a href="#contact" class="button button-secondary">
+          Get Started
+        </a>
+
+      </div>
+
+
+      <div class="price-card featured">
+
+        <div class="plan">
+          PRO
+        </div>
+
+        <div class="price">
+          $49 <span>/month</span>
+        </div>
+
+        <p style="color:#91a5bc;">
+          For active investors researching multiple opportunities.
+        </p>
+
+        <ul>
+          <li>✓ Everything in Starter</li>
+          <li>✓ Advanced deal analysis</li>
+          <li>✓ Market research tools</li>
+          <li>✓ More AI-assisted research</li>
+          <li>✓ Priority features</li>
+        </ul>
+
+        <a href="#contact" class="button button-primary">
+          Get Started
+        </a>
+
+      </div>
+
+
+      <div class="price-card">
+
+        <div class="plan">
+          PROFESSIONAL
+        </div>
+
+        <div class="price">
+          $99 <span>/month</span>
+        </div>
+
+        <p style="color:#91a5bc;">
+          For serious investors and growing real estate businesses.
+        </p>
+
+        <ul>
+          <li>✓ Everything in Pro</li>
+          <li>✓ Advanced workflows</li>
+          <li>✓ Higher usage limits</li>
+          <li>✓ Expanded research tools</li>
+          <li>✓ Business features</li>
+        </ul>
+
+        <a href="#contact" class="button button-secondary">
+          Get Started
+        </a>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- CTA -->
+
+<section class="cta" id="contact">
+
+  <div class="container">
+
+    <h2>Start Researching Smarter</h2>
+
+    <p>
+      Propelora AI is designed to help real estate investors
+      organize research and analyze potential opportunities faster.
+    </p>
+
+    <!-- CHANGE THIS EMAIL -->
+    <a
+      href="mailto:YOUR_EMAIL_HERE"
+      class="button button-primary">
+      Contact Propelora AI
+    </a>
+
+  </div>
+
+</section>
+
+
+<!-- FOOTER -->
+
+<footer>
+
+  <div class="container footer-inner">
+
+    <div>
+      <div class="footer-logo">
+        Propelora AI
+      </div>
+
+      <div style="margin-top:7px;">
+        AI-powered property research and deal analysis.
+      </div>
+    </div>
+
+    <div>
+      © 2026 Propelora AI. All rights reserved.
+    </div>
+
+  </div>
+
+</footer>
+
+
+</body>
+</html>
 ```
