@@ -556,5 +556,1331 @@ footer{
 
 .app{
   min-height:100vh;
-  background:#0
+  background:#07111f;
+}
+
+.app-nav{
+  height:70px;
+  border-bottom:1px solid #1d3149;
+  background:#091728;
+}
+
+.app-nav-inner{
+  height:100%;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+
+.user-area{
+  display:flex;
+  align-items:center;
+  gap:15px;
+}
+
+.user-email{
+  color:#9db1c7;
+  font-size:13px;
+}
+
+.logout{
+  padding:9px 14px;
+  border:1px solid #2a435d;
+  border-radius:8px;
+  background:#0c1b2d;
+  color:white;
+}
+
+.app-content{
+  width:min(1200px,92%);
+  margin:auto;
+  padding:40px 0;
+}
+
+.welcome h1{
+  margin:0 0 8px;
+  font-size:34px;
+}
+
+.welcome p{
+  margin:0;
+  color:#8196ad;
+}
+
+.dashboard-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:18px;
+  margin-top:30px;
+}
+
+.dashboard-card{
+  padding:24px;
+  border:1px solid #203650;
+  border-radius:15px;
+  background:#0b1829;
+}
+
+.dashboard-card h3{
+  margin-top:0;
+}
+
+.big-number{
+  font-size:35px;
+  font-weight:800;
+  margin:10px 0;
+}
+
+.dashboard-card p{
+  color:#8196ad;
+  line-height:1.5;
+}
+
+.property-panel{
+  margin-top:18px;
+  padding:25px;
+  border:1px solid #203650;
+  border-radius:15px;
+  background:#0b1829;
+}
+
+.property-search{
+  display:flex;
+  gap:10px;
+}
+
+.property-search input{
+  flex:1;
+  padding:13px;
+  border-radius:8px;
+  border:1px solid #29435e;
+  background:#07111f;
+  color:white;
+}
+
+.property-search button{
+  padding:13px 18px;
+  border:0;
+  border-radius:8px;
+  background:#1688e8;
+  color:white;
+  font-weight:700;
+}
+
+.analysis{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:12px;
+  margin-top:20px;
+}
+
+.analysis-item{
+  padding:16px;
+  border-radius:10px;
+  background:#101f33;
+  border:1px solid #203650;
+}
+
+.analysis-item small{
+  display:block;
+  color:#7f94aa;
+  margin-bottom:7px;
+}
+
+.analysis-item strong{
+  font-size:20px;
+}
+
+/* =========================
+   TOAST
+========================= */
+
+.toast{
+  position:fixed;
+  right:20px;
+  bottom:20px;
+  z-index:5000;
+  max-width:350px;
+  padding:14px 17px;
+  border:1px solid #2c4965;
+  border-radius:10px;
+  background:#102238;
+  color:white;
+  box-shadow:0 15px 50px rgba(0,0,0,.4);
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media(max-width:850px){
+
+  .nav-links{
+    display:none;
+  }
+
+  .features,
+  .steps,
+  .pricing,
+  .dashboard-grid{
+    grid-template-columns:1fr;
+  }
+
+  .preview-stats{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  .analysis{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  .hero{
+    padding-top:65px;
+  }
+}
+
+@media(max-width:550px){
+
+  .preview-stats,
+  .analysis{
+    grid-template-columns:1fr;
+  }
+
+  .property-search{
+    flex-direction:column;
+  }
+
+  .hero h1{
+    font-size:42px;
+  }
+
+  .auth-box{
+    padding:25px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<!-- =========================
+     LANDING PAGE
+========================= -->
+
+<div id="landing">
+
+<nav>
+  <div class="container nav-inner">
+
+    <a href="#" class="logo">
+      Propelora <span>AI</span>
+    </a>
+
+    <div class="nav-links">
+      <a href="#features">Features</a>
+      <a href="#how">How It Works</a>
+      <a href="#pricing">Pricing</a>
+      <button class="nav-btn" onclick="showAuth('signup')">
+        Sign Up
+      </button>
+    </div>
+
+  </div>
+</nav>
+
+
+<header class="hero">
+
+  <div class="container">
+
+    <div class="badge">
+      AI-POWERED PROPERTY RESEARCH
+    </div>
+
+    <h1>
+      Find Better Real Estate Deals With
+      <span>AI</span>
+    </h1>
+
+    <p class="hero-text">
+      Propelora AI helps investors research properties,
+      organize opportunities, analyze potential deals,
+      and estimate renovation costs from one dashboard.
+    </p>
+
+    <div class="hero-buttons">
+
+      <button class="btn btn-primary" onclick="showAuth('signup')">
+        Create Free Account
+      </button>
+
+      <button class="btn" onclick="showAuth('login')">
+        Log In
+      </button>
+
+    </div>
+
+
+    <div class="preview">
+
+      <div class="preview-top">
+
+        <div>
+          <div class="preview-title">
+            Propelora AI Dashboard
+          </div>
+
+          <div style="color:#7389a0;font-size:12px;margin-top:5px;">
+            Property research & deal analysis
+          </div>
+        </div>
+
+        <div class="online">
+          ● System Online
+        </div>
+
+      </div>
+
+      <div class="search-box">
+        🔎 Search properties, addresses, ZIP codes or markets...
+      </div>
+
+      <div class="preview-stats">
+
+        <div class="preview-stat">
+          <small>Properties Analyzed</small>
+          <strong>1,284</strong>
+        </div>
+
+        <div class="preview-stat">
+          <small>Potential Deals</small>
+          <strong>147</strong>
+        </div>
+
+        <div class="preview-stat">
+          <small>Avg. Deal Spread</small>
+          <strong>$42K</strong>
+        </div>
+
+        <div class="preview-stat">
+          <small>Markets Tracked</small>
+          <strong>24</strong>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</header>
+
+
+<section id="features">
+
+  <div class="container">
+
+    <div class="heading">
+      <h2>Powerful Property Research Tools</h2>
+
+      <p>
+        Propelora brings the important pieces of preliminary
+        property research into one organized workspace.
+      </p>
+    </div>
+
+
+    <div class="features">
+
+      <div class="card">
+        <div class="card-icon">⌕</div>
+        <h3>Property Research</h3>
+        <p>
+          Organize property information, addresses,
+          characteristics, estimates, and research notes.
+        </p>
+      </div>
+
+
+      <div class="card">
+        <div class="card-icon">◆</div>
+        <h3>Deal Analysis</h3>
+        <p>
+          Compare purchase price, estimated repairs,
+          projected value, and potential deal margins.
+        </p>
+      </div>
+
+
+      <div class="card">
+        <div class="card-icon">▣</div>
+        <h3>Market Research</h3>
+        <p>
+          Keep market information organized while researching
+          neighborhoods and investment opportunities.
+        </p>
+      </div>
+
+
+      <div class="card">
+        <div class="card-icon">↗</div>
+        <h3>Investment Estimates</h3>
+        <p>
+          Create preliminary renovation and investment
+          estimates based on your own assumptions.
+        </p>
+      </div>
+
+
+      <div class="card">
+        <div class="card-icon">✓</div>
+        <h3>Deal Organization</h3>
+        <p>
+          Save your research, notes, assumptions, and
+          opportunities in an organized workspace.
+        </p>
+      </div>
+
+
+      <div class="card">
+        <div class="card-icon">AI</div>
+        <h3>AI Assistance</h3>
+        <p>
+          Use AI-assisted workflows to speed up repetitive
+          property research and analysis tasks.
+        </p>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<section id="how">
+
+  <div class="container">
+
+    <div class="heading">
+      <h2>How It Works</h2>
+
+      <p>
+        Start with a property and organize the information
+        you need to evaluate the opportunity.
+      </p>
+    </div>
+
+
+    <div class="steps">
+
+      <div class="step">
+        <div class="step-number">STEP 01</div>
+        <h3>Find a Property</h3>
+        <p>
+          Search for a property or enter an address you want
+          to research.
+        </p>
+      </div>
+
+
+      <div class="step">
+        <div class="step-number">STEP 02</div>
+        <h3>Analyze the Deal</h3>
+        <p>
+          Enter your purchase price, renovation estimate,
+          projected value, and other assumptions.
+        </p>
+      </div>
+
+
+      <div class="step">
+        <div class="step-number">STEP 03</div>
+        <h3>Review Your Research</h3>
+        <p>
+          Organize the information and continue your own
+          due diligence before making an investment decision.
+        </p>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<section id="pricing">
+
+  <div class="container">
+
+    <div class="heading">
+      <h2>Simple Pricing</h2>
+
+      <p>
+        Plans designed for different levels of property research.
+      </p>
+    </div>
+
+
+    <div class="pricing">
+
+      <div class="price-card">
+
+        <div class="plan">STARTER</div>
+
+        <div class="price">
+          $19 <span>/month</span>
+        </div>
+
+        <p>
+          For individuals getting started.
+        </p>
+
+        <ul>
+          <li>✓ Property research</li>
+          <li>✓ Deal analysis</li>
+          <li>✓ Basic AI assistance</li>
+          <li>✓ Saved research</li>
+        </ul>
+
+        <button
+          class="btn"
+          style="width:100%;"
+          onclick="showAuth('signup')">
+          Get Started
+        </button>
+
+      </div>
+
+
+      <div class="price-card featured">
+
+        <div class="plan">PRO</div>
+
+        <div class="price">
+          $49 <span>/month</span>
+        </div>
+
+        <p>
+          For active real estate investors.
+        </p>
+
+        <ul>
+          <li>✓ Everything in Starter</li>
+          <li>✓ Advanced deal analysis</li>
+          <li>✓ Market research</li>
+          <li>✓ More AI assistance</li>
+          <li>✓ Priority features</li>
+        </ul>
+
+        <button
+          class="btn btn-primary"
+          style="width:100%;"
+          onclick="showAuth('signup')">
+          Get Started
+        </button>
+
+      </div>
+
+
+      <div class="price-card">
+
+        <div class="plan">PROFESSIONAL</div>
+
+        <div class="price">
+          $99 <span>/month</span>
+        </div>
+
+        <p>
+          For growing real estate businesses.
+        </p>
+
+        <ul>
+          <li>✓ Everything in Pro</li>
+          <li>✓ Advanced workflows</li>
+          <li>✓ Higher usage limits</li>
+          <li>✓ Expanded research</li>
+          <li>✓ Business features</li>
+        </ul>
+
+        <button
+          class="btn"
+          style="width:100%;"
+          onclick="showAuth('signup')">
+          Get Started
+        </button>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<section class="cta">
+
+  <div class="container">
+
+    <h2>Start Researching Smarter</h2>
+
+    <p>
+      Create your Propelora account and begin organizing
+      your property research.
+    </p>
+
+    <button
+      class="btn btn-primary"
+      onclick="showAuth('signup')">
+      Create Your Account
+    </button>
+
+  </div>
+
+</section>
+
+
+<footer>
+
+  <div class="container footer-inner">
+
+    <div>
+      <div class="footer-brand">
+        Propelora AI
+      </div>
+
+      <div style="margin-top:7px;">
+        AI-powered property research and deal analysis.
+      </div>
+    </div>
+
+    <div>
+      © 2026 Propelora AI. All rights reserved.
+    </div>
+
+  </div>
+
+</footer>
+
+</div>
+
+
+<!-- =========================
+     AUTH SCREEN
+========================= -->
+
+<div id="authScreen" class="auth-screen hidden">
+
+  <button class="close-auth" onclick="closeAuth()">
+    ×
+  </button>
+
+
+  <!-- SIGN UP -->
+
+  <div id="signupBox" class="auth-box hidden">
+
+    <div class="auth-logo">
+      Propelora <span>AI</span>
+    </div>
+
+    <h2>Create Your Account</h2>
+
+    <div class="auth-subtitle">
+      Start using your Propelora dashboard.
+    </div>
+
+    <form onsubmit="signup(event)">
+
+      <div class="form-group">
+        <label>Full Name</label>
+
+        <input
+          id="signupName"
+          type="text"
+          placeholder="Your name"
+          required>
+      </div>
+
+
+      <div class="form-group">
+        <label>Email Address</label>
+
+        <input
+          id="signupEmail"
+          type="email"
+          placeholder="you@example.com"
+          required>
+      </div>
+
+
+      <div class="form-group">
+        <label>Password</label>
+
+        <input
+          id="signupPassword"
+          type="password"
+          placeholder="Create a password"
+          minlength="6"
+          required>
+      </div>
+
+
+      <button class="auth-submit" type="submit">
+        Create Account
+      </button>
+
+    </form>
+
+
+    <div class="auth-switch">
+      Already have an account?
+      <button onclick="showAuth('login')">
+        Log in
+      </button>
+    </div>
+
+  </div>
+
+
+  <!-- LOGIN -->
+
+  <div id="loginBox" class="auth-box hidden">
+
+    <div class="auth-logo">
+      Propelora <span>AI</span>
+    </div>
+
+    <h2>Welcome Back</h2>
+
+    <div class="auth-subtitle">
+      Log in to your Propelora dashboard.
+    </div>
+
+    <form onsubmit="login(event)">
+
+      <div class="form-group">
+        <label>Email Address</label>
+
+        <input
+          id="loginEmail"
+          type="email"
+          placeholder="you@example.com"
+          required>
+      </div>
+
+
+      <div class="form-group">
+        <label>Password</label>
+
+        <input
+          id="loginPassword"
+          type="password"
+          placeholder="Your password"
+          required>
+      </div>
+
+
+      <div style="text-align:right;margin-bottom:15px;">
+
+        <button
+          type="button"
+          class="forgot"
+          onclick="showAuth('forgot')">
+          Forgot password?
+        </button>
+
+      </div>
+
+
+      <button class="auth-submit" type="submit">
+        Log In
+      </button>
+
+    </form>
+
+
+    <div class="auth-switch">
+      Don't have an account?
+      <button onclick="showAuth('signup')">
+        Sign up
+      </button>
+    </div>
+
+  </div>
+
+
+  <!-- FORGOT PASSWORD -->
+
+  <div id="forgotBox" class="auth-box hidden">
+
+    <div class="auth-logo">
+      Propelora <span>AI</span>
+    </div>
+
+    <h2>Reset Password</h2>
+
+    <div class="auth-subtitle">
+      Enter your email to request a password reset.
+    </div>
+
+    <form onsubmit="forgotPassword(event)">
+
+      <div class="form-group">
+        <label>Email Address</label>
+
+        <input
+          id="forgotEmail"
+          type="email"
+          placeholder="you@example.com"
+          required>
+      </div>
+
+
+      <button class="auth-submit" type="submit">
+        Send Reset Request
+      </button>
+
+    </form>
+
+
+    <div class="auth-switch">
+      Remember your password?
+      <button onclick="showAuth('login')">
+        Log in
+      </button>
+    </div>
+
+  </div>
+
+</div>
+
+
+<!-- =========================
+     APP DASHBOARD
+========================= -->
+
+<div id="app" class="app hidden">
+
+  <div class="app-nav">
+
+    <div class="container app-nav-inner">
+
+      <div class="logo">
+        Propelora <span>AI</span>
+      </div>
+
+      <div class="user-area">
+
+        <div id="userEmail" class="user-email"></div>
+
+        <button class="logout" onclick="logout()">
+          Log Out
+        </button>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <main class="app-content">
+
+    <div class="welcome">
+
+      <h1>
+        Welcome to Propelora AI
+      </h1>
+
+      <p>
+        Your property research dashboard.
+      </p>
+
+    </div>
+
+
+    <div class="dashboard-grid">
+
+      <div class="dashboard-card">
+
+        <h3>Properties</h3>
+
+        <div class="big-number">
+          0
+        </div>
+
+        <p>
+          Properties currently saved to your workspace.
+        </p>
+
+      </div>
+
+
+      <div class="dashboard-card">
+
+        <h3>Potential Deals</h3>
+
+        <div class="big-number">
+          0
+        </div>
+
+        <p>
+          Opportunities currently being analyzed.
+        </p>
+
+      </div>
+
+
+      <div class="dashboard-card">
+
+        <h3>Research</h3>
+
+        <div class="big-number">
+          0
+        </div>
+
+        <p>
+          Saved research projects.
+        </p>
+
+      </div>
+
+    </div>
+
+
+    <div class="property-panel">
+
+      <h2>Property Research</h2>
+
+      <p style="color:#8196ad;">
+        Enter a property address to begin your research.
+      </p>
+
+
+      <div class="property-search">
+
+        <input
+          id="propertyInput"
+          type="text"
+          placeholder="Enter property address...">
+
+        <button onclick="analyzeProperty()">
+          Analyze Property
+        </button>
+
+      </div>
+
+
+      <div id="analysisResults" class="hidden">
+
+        <div style="margin-top:25px;">
+
+          <h3 id="propertyTitle">
+            Property Analysis
+          </h3>
+
+          <p id="propertyAddress"
+             style="color:#8196ad;">
+          </p>
+
+        </div>
+
+
+        <div class="analysis">
+
+          <div class="analysis-item">
+
+            <small>Estimated Value</small>
+
+            <strong>$--</strong>
+
+          </div>
+
+
+          <div class="analysis-item">
+
+            <small>Estimated Repairs</small>
+
+            <strong>$--</strong>
+
+          </div>
+
+
+          <div class="analysis-item">
+
+            <small>Potential Spread</small>
+
+            <strong>$--</strong>
+
+          </div>
+
+
+          <div class="analysis-item">
+
+            <small>Research Status</small>
+
+            <strong>Review</strong>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </main>
+
+</div>
+
+
+<!-- =========================
+     TOAST
+========================= -->
+
+<div id="toast" class="toast hidden"></div>
+
+
+<script>
+
+/* =========================
+   AUTH SCREENS
+========================= */
+
+function showAuth(type){
+
+  document.getElementById("authScreen").classList.remove("hidden");
+
+  document.getElementById("signupBox").classList.add("hidden");
+  document.getElementById("loginBox").classList.add("hidden");
+  document.getElementById("forgotBox").classList.add("hidden");
+
+  if(type === "signup"){
+    document.getElementById("signupBox").classList.remove("hidden");
+  }
+
+  if(type === "login"){
+    document.getElementById("loginBox").classList.remove("hidden");
+  }
+
+  if(type === "forgot"){
+    document.getElementById("forgotBox").classList.remove("hidden");
+  }
+
+}
+
+
+function closeAuth(){
+
+  document
+    .getElementById("authScreen")
+    .classList.add("hidden");
+
+}
+
+
+/* =========================
+   SIGN UP
+========================= */
+
+function signup(event){
+
+  event.preventDefault();
+
+  const name =
+    document.getElementById("signupName").value.trim();
+
+  const email =
+    document.getElementById("signupEmail").value.trim();
+
+  const password =
+    document.getElementById("signupPassword").value;
+
+
+  if(password.length < 6){
+
+    showToast(
+      "Password must be at least 6 characters."
+    );
+
+    return;
+
+  }
+
+
+  const account = {
+    name:name,
+    email:email,
+    password:password
+  };
+
+
+  localStorage.setItem(
+    "propeloraAccount",
+    JSON.stringify(account)
+  );
+
+
+  localStorage.setItem(
+    "propeloraLoggedIn",
+    "true"
+  );
+
+
+  localStorage.setItem(
+    "propeloraUser",
+    email
+  );
+
+
+  openDashboard();
+
+}
+
+
+/* =========================
+   LOGIN
+========================= */
+
+function login(event){
+
+  event.preventDefault();
+
+
+  const email =
+    document.getElementById("loginEmail").value.trim();
+
+  const password =
+    document.getElementById("loginPassword").value;
+
+
+  const saved =
+    localStorage.getItem("propeloraAccount");
+
+
+  if(!saved){
+
+    showToast(
+      "No account found. Please create an account first."
+    );
+
+    return;
+
+  }
+
+
+  const account =
+    JSON.parse(saved);
+
+
+  if(
+    email.toLowerCase() !==
+    account.email.toLowerCase() ||
+    password !== account.password
+  ){
+
+    showToast(
+      "Incorrect email or password."
+    );
+
+    return;
+
+  }
+
+
+  localStorage.setItem(
+    "propeloraLoggedIn",
+    "true"
+  );
+
+
+  localStorage.setItem(
+    "propeloraUser",
+    account.email
+  );
+
+
+  openDashboard();
+
+}
+
+
+/* =========================
+   FORGOT PASSWORD
+========================= */
+
+function forgotPassword(event){
+
+  event.preventDefault();
+
+
+  const email =
+    document.getElementById("forgotEmail").value;
+
+
+  showToast(
+    "Password reset request received for " + email
+  );
+
+}
+
+
+/* =========================
+   DASHBOARD
+========================= */
+
+function openDashboard(){
+
+  document
+    .getElementById("authScreen")
+    .classList.add("hidden");
+
+  document
+    .getElementById("landing")
+    .classList.add("hidden");
+
+  document
+    .getElementById("app")
+    .classList.remove("hidden");
+
+
+  const email =
+    localStorage.getItem("propeloraUser") || "";
+
+
+  document
+    .getElementById("userEmail")
+    .textContent = email;
+
+}
+
+
+function logout(){
+
+  localStorage.removeItem(
+    "propeloraLoggedIn"
+  );
+
+  localStorage.removeItem(
+    "propeloraUser"
+  );
+
+
+  document
+    .getElementById("app")
+    .classList.add("hidden");
+
+  document
+    .getElementById("landing")
+    .classList.remove("hidden");
+
+
+  showToast("You have been logged out.");
+
+}
+
+
+/* =========================
+   PROPERTY ANALYSIS DEMO
+========================= */
+
+function analyzeProperty(){
+
+  const input =
+    document
+      .getElementById("propertyInput")
+      .value.trim();
+
+
+  if(!input){
+
+    showToast(
+      "Enter a property address first."
+    );
+
+    return;
+
+  }
+
+
+  document
+    .getElementById("analysisResults")
+    .classList.remove("hidden");
+
+
+  document
+    .getElementById("propertyAddress")
+    .textContent =
+      input;
+
+
+  document
+    .getElementById("propertyTitle")
+    .textContent =
+      "Analysis for " + input;
+
+
+  showToast(
+    "Property added to your research workspace."
+  );
+
+}
+
+
+/* =========================
+   TOAST
+========================= */
+
+function showToast(message){
+
+  const toast =
+    document.getElementById("toast");
+
+
+  toast.textContent =
+    message;
+
+
+  toast.classList.remove("hidden");
+
+
+  setTimeout(function(){
+
+    toast.classList.add("hidden");
+
+  },3500);
+
+}
+
+
+/* =========================
+   AUTO LOGIN
+========================= */
+
+window.addEventListener(
+  "DOMContentLoaded",
+  function(){
+
+    const loggedIn =
+      localStorage.getItem(
+        "propeloraLoggedIn"
+      );
+
+
+    if(loggedIn === "true"){
+
+      openDashboard();
+
+    }
+
+  }
+);
+
+</script>
+
+</body>
+</html>
 ```
