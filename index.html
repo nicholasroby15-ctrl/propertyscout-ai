@@ -1,440 +1,427 @@
+```html
 <!doctype html>
 <html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-
 <title>Propelora AI</title>
-
 <meta name="description" content="Propelora AI property research and deal analysis dashboard.">
 
 <style>
 *{box-sizing:border-box}
 
 body{
-  margin:0;
-  font-family:Arial,sans-serif;
-  background:#08111f;
-  color:#eef4ff;
+margin:0;
+font-family:Arial,sans-serif;
+background:#08111f;
+color:#eef4ff
 }
 
-a{
-  text-decoration:none;
-  color:inherit;
-}
-
-button,input,select{
-  font:inherit;
-}
+button,input,select{font:inherit}
 
 .wrap{
-  max-width:1120px;
-  margin:auto;
-  padding:0 22px;
+max-width:1120px;
+margin:auto;
+padding:0 22px
 }
 
 nav{
-  height:70px;
-  border-bottom:1px solid #22334a;
-  display:flex;
-  align-items:center;
+height:70px;
+border-bottom:1px solid #22334a;
+display:flex;
+align-items:center
 }
 
 .navin{
-  width:100%;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
+width:100%;
+display:flex;
+justify-content:space-between;
+align-items:center
 }
 
 .logo{
-  font-size:21px;
-  font-weight:800;
+font-size:21px;
+font-weight:800
 }
 
-.logo span{
-  color:#65adff;
-}
+.logo span{color:#65adff}
 
 .btn{
-  display:inline-block;
-  border:0;
-  background:#65adff;
-  color:#06101b;
-  padding:13px 18px;
-  border-radius:9px;
-  font-weight:800;
-  cursor:pointer;
+border:0;
+background:#65adff;
+color:#06101b;
+padding:13px 18px;
+border-radius:9px;
+font-weight:800;
+cursor:pointer
 }
 
 .btn:disabled{
-  opacity:.6;
-  cursor:not-allowed;
+opacity:.6;
+cursor:not-allowed
 }
 
 .outline{
-  border:1px solid #3b5069;
-  color:#eef4ff;
-  padding:11px 16px;
-  border-radius:9px;
-  font-weight:700;
-  background:transparent;
-  cursor:pointer;
+border:1px solid #3b5069;
+color:#eef4ff;
+padding:11px 16px;
+border-radius:9px;
+font-weight:700;
+background:transparent;
+cursor:pointer
+}
+
+.hidden{display:none!important}
+
+.top-actions{
+display:flex;
+gap:10px;
+align-items:center
 }
 
 .hero{
-  text-align:center;
-  padding:90px 0 70px;
+text-align:center;
+padding:90px 0 70px
 }
 
 .eyebrow{
-  color:#65adff;
-  font-weight:800;
-  text-transform:uppercase;
-  letter-spacing:1px;
-  font-size:13px;
+color:#65adff;
+font-weight:800;
+text-transform:uppercase;
+letter-spacing:1px;
+font-size:13px
 }
 
 h1{
-  font-size:clamp(42px,7vw,72px);
-  line-height:1.02;
-  max-width:900px;
-  margin:15px auto 22px;
+font-size:clamp(42px,7vw,72px);
+line-height:1.02;
+max-width:900px;
+margin:15px auto 22px
 }
 
 .hero p{
-  max-width:700px;
-  margin:auto auto 28px;
-  color:#b9c6d7;
-  font-size:19px;
+max-width:700px;
+margin:auto auto 28px;
+color:#b9c6d7;
+font-size:19px
 }
 
 .notice{
-  font-size:12px!important;
-  color:#8493a7!important;
+font-size:12px!important;
+color:#8493a7!important
 }
 
 .grid{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:18px;
-  padding-bottom:75px;
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:18px;
+padding-bottom:75px
 }
 
 .card,.panel{
-  background:#0e1b2d;
-  border:1px solid #263a53;
-  border-radius:16px;
-  padding:25px;
+background:#0e1b2d;
+border:1px solid #263a53;
+border-radius:16px;
+padding:25px
 }
 
 .card p,.muted{
-  color:#aebbd0;
+color:#aebbd0
 }
 
 .section{
-  border-top:1px solid #192a3f;
-  padding:65px 0;
+border-top:1px solid #192a3f;
+padding:65px 0
 }
 
 .section h2{
-  font-size:36px;
-  margin:0 0 10px;
+font-size:36px;
+margin:0 0 10px
 }
 
 .demo{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:20px;
-  margin-top:25px;
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:20px;
+margin-top:25px
 }
 
 .metric{
-  display:flex;
-  justify-content:space-between;
-  border-top:1px solid #263a53;
-  padding:12px 0;
+display:flex;
+justify-content:space-between;
+border-top:1px solid #263a53;
+padding:12px 0
 }
 
 .big{
-  font-size:34px;
-  font-weight:800;
+font-size:34px;
+font-weight:800
 }
 
 .steps{
-  display:grid;
-  gap:12px;
-  margin-top:25px;
+display:grid;
+gap:12px;
+margin-top:25px
 }
 
 .step{
-  padding:20px;
-  background:#0e1b2d;
-  border:1px solid #263a53;
-  border-radius:12px;
+padding:20px;
+background:#0e1b2d;
+border:1px solid #263a53;
+border-radius:12px
 }
 
 .pricing{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:18px;
-  margin-top:25px;
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:18px;
+margin-top:25px
 }
 
 .price{
-  font-size:30px;
-  font-weight:800;
+font-size:30px;
+font-weight:800
 }
 
 .plan{
-  border:1px solid #263a53;
-  background:#0e1b2d;
-  border-radius:16px;
-  padding:25px;
+border:1px solid #263a53;
+background:#0e1b2d;
+border-radius:16px;
+padding:25px
 }
 
 .plan.featured{
-  border-color:#65adff;
-}
-
-.hidden{
-  display:none!important;
+border-color:#65adff
 }
 
 .auth-screen{
-  min-height:calc(100vh - 70px);
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  padding:40px 20px;
+min-height:calc(100vh - 70px);
+display:flex;
+align-items:center;
+justify-content:center;
+padding:40px 20px
 }
 
 .auth-box{
-  width:100%;
-  max-width:470px;
-  background:#0e1b2d;
-  border:1px solid #263a53;
-  border-radius:18px;
-  padding:30px;
+width:100%;
+max-width:470px;
+background:#0e1b2d;
+border:1px solid #263a53;
+border-radius:18px;
+padding:30px
 }
 
 .auth-box h2{
-  margin-top:0;
-  font-size:30px;
+margin-top:0;
+font-size:30px
 }
 
 .field{
-  margin:15px 0;
+margin:15px 0
 }
 
 .field label{
-  display:block;
-  margin-bottom:7px;
-  font-weight:700;
-  font-size:14px;
+display:block;
+margin-bottom:7px;
+font-weight:700;
+font-size:14px
 }
 
 .field input,
 .field select{
-  width:100%;
-  padding:13px;
-  border-radius:9px;
-  border:1px solid #334b66;
-  background:#08111f;
-  color:#eef4ff;
+width:100%;
+padding:13px;
+border-radius:9px;
+border:1px solid #334b66;
+background:#08111f;
+color:#eef4ff
 }
 
 .auth-actions{
-  display:flex;
-  gap:10px;
-  align-items:center;
-  margin-top:20px;
+display:flex;
+gap:10px;
+align-items:center;
+margin-top:20px
 }
 
 .error{
-  color:#ff8e8e;
-  font-size:14px;
-  margin-top:10px;
+color:#ff8e8e;
+font-size:14px;
+margin-top:10px
 }
 
 .success{
-  color:#77e0a3;
-  font-size:14px;
-  margin-top:10px;
+color:#77e0a3;
+font-size:14px;
+margin-top:10px
 }
 
 .small{
-  font-size:13px;
-  color:#9eacc0;
+font-size:13px;
+color:#9eacc0
 }
 
 .link{
-  color:#65adff;
-  cursor:pointer;
+color:#65adff;
+cursor:pointer
 }
 
 .dashboard{
-  min-height:calc(100vh - 70px);
+min-height:calc(100vh - 70px)
 }
 
 .dash-top{
-  border-bottom:1px solid #192a3f;
-  padding:28px 0;
+border-bottom:1px solid #192a3f;
+padding:28px 0
 }
 
 .dash-layout{
-  display:grid;
-  grid-template-columns:230px 1fr;
-  gap:24px;
-  padding:25px 0;
+display:grid;
+grid-template-columns:230px 1fr;
+gap:24px;
+padding:25px 0
 }
 
 .sidebar{
-  background:#0e1b2d;
-  border:1px solid #263a53;
-  border-radius:16px;
-  padding:12px;
-  height:max-content;
+background:#0e1b2d;
+border:1px solid #263a53;
+border-radius:16px;
+padding:12px;
+height:max-content
 }
 
 .sidebtn{
-  display:block;
-  width:100%;
-  text-align:left;
-  background:transparent;
-  color:#b9c6d7;
-  border:0;
-  padding:13px;
-  border-radius:9px;
-  cursor:pointer;
+display:block;
+width:100%;
+text-align:left;
+background:transparent;
+color:#b9c6d7;
+border:0;
+padding:13px;
+border-radius:9px;
+cursor:pointer
 }
 
 .sidebtn.active,
 .sidebtn:hover{
-  background:#172942;
-  color:#fff;
+background:#172942;
+color:#fff
 }
 
 .main-area{
-  min-width:0;
+min-width:0
 }
 
 .stats{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:15px;
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:15px
 }
 
 .stat{
-  background:#0e1b2d;
-  border:1px solid #263a53;
-  border-radius:14px;
-  padding:20px;
+background:#0e1b2d;
+border:1px solid #263a53;
+border-radius:14px;
+padding:20px
 }
 
 .stat b{
-  display:block;
-  font-size:30px;
-  margin-top:6px;
+display:block;
+font-size:30px;
+margin-top:6px
 }
 
 .action-grid{
-  display:grid;
-  grid-template-columns:repeat(2,1fr);
-  gap:16px;
-  margin-top:20px;
+display:grid;
+grid-template-columns:repeat(2,1fr);
+gap:16px;
+margin-top:20px
 }
 
 .action{
-  background:#0e1b2d;
-  border:1px solid #263a53;
-  border-radius:14px;
-  padding:22px;
-  cursor:pointer;
+background:#0e1b2d;
+border:1px solid #263a53;
+border-radius:14px;
+padding:22px;
+cursor:pointer
 }
 
 .action:hover{
-  border-color:#65adff;
+border-color:#65adff
 }
 
 .view{
-  margin-top:22px;
+margin-top:22px
 }
 
 .property-card{
-  background:#0e1b2d;
-  border:1px solid #263a53;
-  border-radius:14px;
-  padding:20px;
-  margin-top:12px;
+background:#0e1b2d;
+border:1px solid #263a53;
+border-radius:14px;
+padding:20px;
+margin-top:12px
 }
 
 .badge{
-  display:inline-block;
-  border:1px solid #36506c;
-  border-radius:999px;
-  padding:5px 9px;
-  font-size:12px;
-  color:#aebbd0;
+display:inline-block;
+border:1px solid #36506c;
+border-radius:999px;
+padding:5px 9px;
+font-size:12px;
+color:#aebbd0
 }
 
 .delete-btn{
-  margin-top:12px;
-  border:1px solid #713f48;
-  background:transparent;
-  color:#ff9da6;
-  padding:8px 12px;
-  border-radius:8px;
-  cursor:pointer;
-}
-
-.top-actions{
-  display:flex;
-  gap:10px;
-  align-items:center;
+margin-top:12px;
+border:1px solid #713f48;
+background:transparent;
+color:#ff9da6;
+padding:8px 12px;
+border-radius:8px;
+cursor:pointer
 }
 
 .empty{
-  padding:25px;
-  text-align:center;
-  border:1px dashed #334b66;
-  border-radius:14px;
-  color:#8f9fb4;
-  margin-top:15px;
+padding:25px;
+text-align:center;
+border:1px dashed #334b66;
+border-radius:14px;
+color:#8f9fb4;
+margin-top:15px
 }
 
 .loading{
-  color:#aebbd0;
-  padding:20px 0;
+color:#aebbd0;
+padding:20px 0
 }
 
 @media(max-width:800px){
 
-  .grid,
-  .pricing,
-  .stats,
-  .action-grid{
-    grid-template-columns:1fr;
-  }
+.grid,
+.pricing,
+.stats,
+.action-grid{
+grid-template-columns:1fr
+}
 
-  .demo{
-    grid-template-columns:1fr;
-  }
+.demo{
+grid-template-columns:1fr
+}
 
-  .dash-layout{
-    grid-template-columns:1fr;
-  }
+.dash-layout{
+grid-template-columns:1fr
+}
 
-  .sidebar{
-    display:flex;
-    overflow:auto;
-    gap:5px;
-  }
+.sidebar{
+display:flex;
+overflow:auto;
+gap:5px
+}
 
-  .sidebtn{
-    white-space:nowrap;
-    width:auto;
-  }
+.sidebtn{
+white-space:nowrap;
+width:auto
+}
 }
 </style>
 </head>
@@ -476,7 +463,7 @@ Log Out
 </nav>
 
 
-<!-- LANDING PAGE -->
+<!-- LANDING -->
 
 <div id="landing">
 
@@ -512,7 +499,6 @@ Information should be independently verified.
 </div>
 
 </header>
-
 
 <main>
 
@@ -564,17 +550,11 @@ Values are not appraisals, guarantees or investment advice.
 
 <div class="panel">
 
-<div class="muted">
-Sample Property
-</div>
+<div class="muted">Sample Property</div>
 
-<h3>
-123 Example Street
-</h3>
+<h3>123 Example Street</h3>
 
-<div class="big">
-$79,900
-</div>
+<div class="big">$79,900</div>
 
 <div class="metric">
 <span>Estimated repairs</span>
@@ -592,7 +572,6 @@ $79,900
 </div>
 
 </div>
-
 
 <div class="panel">
 
@@ -746,7 +725,6 @@ Choose Pro
 </section>
 
 </main>
-
 </div>
 
 
@@ -763,7 +741,6 @@ Create your Propelora account
 <p class="muted" id="authSubtitle">
 Start with your account and choose a plan.
 </p>
-
 
 <div id="signupFields">
 
@@ -786,11 +763,9 @@ Start with your account and choose a plan.
 <label>Plan</label>
 
 <select id="plan">
-
 <option>Starter — $19/mo</option>
 <option>Professional — $49/mo</option>
 <option>Pro — $99/mo</option>
-
 </select>
 
 </div>
@@ -835,9 +810,7 @@ Back
 <p class="small" id="switchText">
 Already have an account?
 
-<span
-class="link"
-onclick="showAuth('login')">
+<span class="link" onclick="showAuth('login')">
 Log in
 </span>
 
@@ -856,9 +829,7 @@ Log in
 
 <div class="dash-top">
 
-<h1>
-Welcome to Propelora
-</h1>
+<h1>Welcome to Propelora</h1>
 
 <p class="muted">
 Your property research dashboard.
@@ -868,7 +839,6 @@ Your property research dashboard.
 
 
 <div class="dash-layout">
-
 
 <aside class="sidebar">
 
@@ -923,35 +893,18 @@ Account
 <div class="stats">
 
 <div class="stat">
-<span class="muted">
-Saved Properties
-</span>
-
-<b id="propertyCount">
-0
-</b>
+<span class="muted">Saved Properties</span>
+<b id="propertyCount">0</b>
 </div>
 
-
 <div class="stat">
-<span class="muted">
-Research Reports
-</span>
-
-<b id="reportCount">
-0
-</b>
+<span class="muted">Research Reports</span>
+<b id="reportCount">0</b>
 </div>
 
-
 <div class="stat">
-<span class="muted">
-Saved Searches
-</span>
-
-<b id="searchCount">
-0
-</b>
+<span class="muted">Alerts</span>
+<b id="alertCount">0</b>
 </div>
 
 </div>
@@ -963,9 +916,7 @@ Saved Searches
 class="action"
 onclick="showView('properties')">
 
-<h3>
-🔎 Research a Property
-</h3>
+<h3>🔎 Research a Property</h3>
 
 <p class="muted">
 Enter a property address and create a research report.
@@ -978,12 +929,23 @@ Enter a property address and create a research report.
 class="action"
 onclick="showView('saved')">
 
-<h3>
-⭐ Saved Searches
-</h3>
+<h3>⭐ Saved Searches</h3>
 
 <p class="muted">
 Create and manage your property search criteria.
+</p>
+
+</div>
+
+
+<div
+class="action"
+onclick="showView('alerts')">
+
+<h3>🔔 Property Alerts</h3>
+
+<p class="muted">
+View property opportunities and changes associated with your searches.
 </p>
 
 </div>
@@ -997,17 +959,13 @@ Create and manage your property search criteria.
 
 <div id="properties" class="view hidden">
 
-<h2>
-Property Research
-</h2>
+<h2>Property Research</h2>
 
 <div class="panel">
 
 <div class="field">
 
-<label>
-Property address
-</label>
+<label>Property address</label>
 
 <input
 id="propertyAddress"
@@ -1018,9 +976,7 @@ placeholder="123 Main Street, Lima, OH">
 
 <div class="field">
 
-<label>
-Purchase price
-</label>
+<label>Purchase price</label>
 
 <input
 id="propertyPrice"
@@ -1041,10 +997,6 @@ Create Research Report
 
 <p class="success" id="reportSuccess"></p>
 
-<p class="small">
-Your report will be saved to your Propelora account.
-</p>
-
 </div>
 
 
@@ -1057,14 +1009,10 @@ Your report will be saved to your Propelora account.
 
 <div id="reports" class="view hidden">
 
-<h2>
-Research Reports
-</h2>
+<h2>Research Reports</h2>
 
 <div id="reportsList">
-<div class="loading">
-Loading reports...
-</div>
+<div class="loading">Loading reports...</div>
 </div>
 
 </div>
@@ -1074,17 +1022,13 @@ Loading reports...
 
 <div id="saved" class="view hidden">
 
-<h2>
-Saved Searches
-</h2>
+<h2>Saved Searches</h2>
 
 <div class="panel">
 
 <div class="field">
 
-<label>
-Search name
-</label>
+<label>Search name</label>
 
 <input
 id="searchName"
@@ -1095,9 +1039,7 @@ placeholder="Lima fixer-uppers">
 
 <div class="field">
 
-<label>
-Location
-</label>
+<label>Location</label>
 
 <input
 id="searchLocation"
@@ -1121,9 +1063,7 @@ Save Search
 
 
 <div id="savedList">
-<div class="loading">
-Loading saved searches...
-</div>
+<div class="loading">Loading saved searches...</div>
 </div>
 
 </div>
@@ -1133,25 +1073,35 @@ Loading saved searches...
 
 <div id="alerts" class="view hidden">
 
-<h2>
-Alerts
-</h2>
+<h2>Property Alerts</h2>
 
 <div class="panel">
 
-<h3>
-Property Alerts
-</h3>
+<h3>Your Alerts</h3>
 
 <p class="muted">
-Your saved searches can eventually be monitored automatically
-for new properties and price changes.
+Alerts connected to your account will appear here.
 </p>
 
-<p class="badge">
-Coming next
+<button
+class="btn"
+onclick="createTestAlert()">
+Create Test Alert
+</button>
+
+<p class="small">
+This test button is temporary. Later we'll replace it with automatic property alerts.
 </p>
 
+<p class="error" id="alertError"></p>
+
+<p class="success" id="alertSuccess"></p>
+
+</div>
+
+
+<div id="alertsList">
+<div class="loading">Loading alerts...</div>
 </div>
 
 </div>
@@ -1161,9 +1111,7 @@ Coming next
 
 <div id="account" class="view hidden">
 
-<h2>
-Account
-</h2>
+<h2>Account</h2>
 
 <div class="panel">
 
@@ -1202,8 +1150,6 @@ Log Out
 </section>
 
 
-<!-- SUPABASE -->
-
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
 <script>
@@ -1220,16 +1166,11 @@ SUPABASE_URL,
 SUPABASE_KEY
 );
 
-let currentUser = null;
+let currentUser=null;
+let reports=[];
+let savedSearches=[];
+let alerts=[];
 
-let reports = [];
-
-let savedSearches = [];
-
-
-/* -------------------------
-   BASIC HELPERS
-------------------------- */
 
 function escapeHtml(value){
 
@@ -1243,85 +1184,63 @@ return String(value ?? "")
 }
 
 
-/* -------------------------
-   AUTH SCREENS
-------------------------- */
+/* AUTH */
 
 function showAuth(type,selectedPlan){
 
-document.getElementById("landing")
-.classList.add("hidden");
+document.getElementById("landing").classList.add("hidden");
+document.getElementById("auth").classList.remove("hidden");
+document.getElementById("dashboard").classList.add("hidden");
 
-document.getElementById("auth")
-.classList.remove("hidden");
-
-document.getElementById("dashboard")
-.classList.add("hidden");
-
-document.getElementById("authError")
-.textContent="";
+document.getElementById("authError").textContent="";
 
 
 if(type==="login"){
 
-document.getElementById("authTitle")
-.textContent="Log in to Propelora";
+document.getElementById("authTitle").textContent="Log in to Propelora";
 
-document.getElementById("authSubtitle")
-.textContent=
+document.getElementById("authSubtitle").textContent=
 "Access your property research dashboard.";
 
-document.getElementById("signupFields")
-.classList.add("hidden");
+document.getElementById("signupFields").classList.add("hidden");
 
-document.getElementById("loginFields")
-.classList.remove("hidden");
+document.getElementById("loginFields").classList.remove("hidden");
 
-document.getElementById("authButton")
-.textContent="Log In";
+document.getElementById("authButton").textContent="Log In";
 
-document.getElementById("switchText")
-.innerHTML=
+document.getElementById("switchText").innerHTML=
 'Need an account? <span class="link" onclick="showAuth(\'signup\')">Create one</span>';
 
 }else{
 
-document.getElementById("authTitle")
-.textContent=
+document.getElementById("authTitle").textContent=
 "Create your Propelora account";
 
-document.getElementById("authSubtitle")
-.textContent=
+document.getElementById("authSubtitle").textContent=
 "Start with your account and choose a plan.";
 
-document.getElementById("signupFields")
-.classList.remove("hidden");
+document.getElementById("signupFields").classList.remove("hidden");
 
-document.getElementById("loginFields")
-.classList.add("hidden");
+document.getElementById("loginFields").classList.add("hidden");
 
-document.getElementById("authButton")
-.textContent=
+document.getElementById("authButton").textContent=
 "Create Account";
 
-document.getElementById("switchText")
-.innerHTML=
+document.getElementById("switchText").innerHTML=
 'Already have an account? <span class="link" onclick="showAuth(\'login\')">Log in</span>';
-
 
 if(selectedPlan){
 
-const planSelect =
-document.getElementById("plan");
+const select=document.getElementById("plan");
 
 if(selectedPlan==="Starter")
-planSelect.value="Starter — $19/mo";
+select.value="Starter — $19/mo";
 
 if(selectedPlan==="Professional")
-planSelect.value="Professional — $49/mo";
+select.value="Professional — $49/mo";
 
 if(selectedPlan==="Pro")
-planSelect.value="Pro — $99/mo";
+select.value="Pro — $99/mo";
 
 }
 
@@ -1332,45 +1251,33 @@ planSelect.value="Pro — $99/mo";
 
 function showLanding(){
 
-document.getElementById("landing")
-.classList.remove("hidden");
-
-document.getElementById("auth")
-.classList.add("hidden");
-
-document.getElementById("dashboard")
-.classList.add("hidden");
+document.getElementById("landing").classList.remove("hidden");
+document.getElementById("auth").classList.add("hidden");
+document.getElementById("dashboard").classList.add("hidden");
 
 }
 
 
-/* -------------------------
-   SIGNUP / LOGIN
-------------------------- */
+/* LOGIN / SIGNUP */
 
 async function submitAuth(){
 
-const error =
-document.getElementById("authError");
+const error=document.getElementById("authError");
 
 error.textContent="";
 
-
-const isLogin =
+const isLogin=
 !document.getElementById("loginFields")
 .classList.contains("hidden");
 
 
 if(isLogin){
 
-const email =
-document.getElementById("loginEmail")
-.value.trim();
+const email=
+document.getElementById("loginEmail").value.trim();
 
-const password =
-document.getElementById("loginPassword")
-.value;
-
+const password=
+document.getElementById("loginPassword").value;
 
 if(!email || !password){
 
@@ -1381,25 +1288,18 @@ return;
 
 }
 
-
-const {data,error:loginError} =
+const {data,error:loginError}=
 await supabaseClient.auth.signInWithPassword({
-
 email:email,
 password:password
-
 });
-
 
 if(loginError){
 
-error.textContent=
-loginError.message;
-
+error.textContent=loginError.message;
 return;
 
 }
-
 
 currentUser=data.user;
 
@@ -1407,23 +1307,17 @@ await openDashboard();
 
 }else{
 
+const name=
+document.getElementById("name").value.trim();
 
-const name =
-document.getElementById("name")
-.value.trim();
+const email=
+document.getElementById("email").value.trim();
 
-const email =
-document.getElementById("email")
-.value.trim();
+const password=
+document.getElementById("password").value;
 
-const password =
-document.getElementById("password")
-.value;
-
-const plan =
-document.getElementById("plan")
-.value;
-
+const plan=
+document.getElementById("plan").value;
 
 if(!name || !email || !password){
 
@@ -1434,7 +1328,6 @@ return;
 
 }
 
-
 if(password.length<8){
 
 error.textContent=
@@ -1444,12 +1337,10 @@ return;
 
 }
 
-
-const {data,error:signupError} =
+const {data,error:signupError}=
 await supabaseClient.auth.signUp({
 
 email:email,
-
 password:password,
 
 options:{
@@ -1461,7 +1352,6 @@ plan:plan
 
 });
 
-
 if(signupError){
 
 error.textContent=
@@ -1471,9 +1361,7 @@ return;
 
 }
 
-
 currentUser=data.user;
-
 
 if(data.session){
 
@@ -1491,52 +1379,32 @@ error.textContent=
 }
 
 
-/* -------------------------
-   DASHBOARD
-------------------------- */
+/* DASHBOARD */
 
 async function openDashboard(){
 
-document.getElementById("landing")
-.classList.add("hidden");
+document.getElementById("landing").classList.add("hidden");
+document.getElementById("auth").classList.add("hidden");
+document.getElementById("dashboard").classList.remove("hidden");
 
-document.getElementById("auth")
-.classList.add("hidden");
+document.getElementById("navLogin").classList.add("hidden");
+document.getElementById("navSignup").classList.add("hidden");
+document.getElementById("navLogout").classList.remove("hidden");
 
-document.getElementById("dashboard")
-.classList.remove("hidden");
+const metadata=currentUser.user_metadata || {};
 
-document.getElementById("navLogin")
-.classList.add("hidden");
+document.getElementById("accountName").textContent=
+metadata.full_name || "Propelora User";
 
-document.getElementById("navSignup")
-.classList.add("hidden");
-
-document.getElementById("navLogout")
-.classList.remove("hidden");
-
-
-const metadata =
-currentUser.user_metadata || {};
-
-
-document.getElementById("accountName")
-.textContent=
-metadata.full_name ||
-"Propelora User";
-
-document.getElementById("accountEmail")
-.textContent=
+document.getElementById("accountEmail").textContent=
 currentUser.email || "";
 
-document.getElementById("accountPlan")
-.textContent=
+document.getElementById("accountPlan").textContent=
 metadata.plan || "Starter";
 
-
 await loadReports();
-
 await loadSavedSearches();
+await loadAlerts();
 
 updateCounts();
 
@@ -1548,31 +1416,21 @@ async function logout(){
 await supabaseClient.auth.signOut();
 
 currentUser=null;
-
 reports=[];
 savedSearches=[];
+alerts=[];
 
-document.getElementById("dashboard")
-.classList.add("hidden");
+document.getElementById("dashboard").classList.add("hidden");
+document.getElementById("landing").classList.remove("hidden");
 
-document.getElementById("landing")
-.classList.remove("hidden");
-
-document.getElementById("navLogin")
-.classList.remove("hidden");
-
-document.getElementById("navSignup")
-.classList.remove("hidden");
-
-document.getElementById("navLogout")
-.classList.add("hidden");
+document.getElementById("navLogin").classList.remove("hidden");
+document.getElementById("navSignup").classList.remove("hidden");
+document.getElementById("navLogout").classList.add("hidden");
 
 }
 
 
-/* -------------------------
-   DASHBOARD VIEWS
-------------------------- */
+/* VIEWS */
 
 function showView(id,button){
 
@@ -1581,10 +1439,7 @@ document.querySelectorAll(".view")
 v.classList.add("hidden");
 });
 
-
-document.getElementById(id)
-.classList.remove("hidden");
-
+document.getElementById(id).classList.remove("hidden");
 
 if(button){
 
@@ -1597,46 +1452,38 @@ button.classList.add("active");
 
 }
 
-
 if(id==="reports")
 renderReports();
 
 if(id==="saved")
 renderSaved();
 
+if(id==="alerts")
+renderAlerts();
+
 }
 
 
-/* -------------------------
-   RESEARCH REPORTS
-------------------------- */
+/* REPORTS */
 
 async function loadReports(){
 
-if(!currentUser)
-return;
+if(!currentUser)return;
 
-
-const {data,error} =
+const {data,error}=
 await supabaseClient
 .from("research_reports")
 .select("*")
 .eq("user_id",currentUser.id)
 .order("created_at",{ascending:false});
 
-
 if(error){
 
 console.error(error);
 
-document.getElementById("reportsList")
-.innerHTML=
-'<p class="error">Could not load reports.</p>';
-
 return;
 
 }
-
 
 reports=data || [];
 
@@ -1647,15 +1494,14 @@ renderReports();
 
 async function createReport(){
 
-const errorBox =
+const errorBox=
 document.getElementById("reportError");
 
-const successBox =
+const successBox=
 document.getElementById("reportSuccess");
 
 errorBox.textContent="";
 successBox.textContent="";
-
 
 if(!currentUser){
 
@@ -1666,15 +1512,13 @@ return;
 
 }
 
-
-const address =
+const address=
 document.getElementById("propertyAddress")
 .value.trim();
 
-const priceValue =
+const priceValue=
 document.getElementById("propertyPrice")
 .value.trim();
-
 
 if(!address){
 
@@ -1685,72 +1529,51 @@ return;
 
 }
 
-
-const button =
+const button=
 document.getElementById("reportButton");
 
 button.disabled=true;
+button.textContent="Saving...";
 
-button.textContent=
-"Saving...";
+const purchasePrice=
+priceValue===""
+?null
+:Number(priceValue);
 
-
-const purchasePrice =
-priceValue === ""
-? null
-: Number(priceValue);
-
-
-const {data,error} =
+const {data,error}=
 await supabaseClient
 .from("research_reports")
 .insert({
 
 user_id:currentUser.id,
-
 address:address,
-
-purchase_price:
-purchasePrice
+purchase_price:purchasePrice
 
 })
 .select()
 .single();
 
-
 button.disabled=false;
-
-button.textContent=
-"Create Research Report";
-
+button.textContent="Create Research Report";
 
 if(error){
 
-console.error(error);
-
 errorBox.textContent=
-"Could not save report: " +
-error.message;
+"Could not save report: "+error.message;
 
 return;
 
 }
-
 
 reports.unshift(data);
 
 successBox.textContent=
 "Research report saved successfully.";
 
-document.getElementById("propertyAddress")
-.value="";
+document.getElementById("propertyAddress").value="";
+document.getElementById("propertyPrice").value="";
 
-document.getElementById("propertyPrice")
-.value="";
-
-
-document.getElementById("propertyResults")
-.innerHTML=`
+document.getElementById("propertyResults").innerHTML=`
 
 <div class="property-card">
 
@@ -1764,24 +1587,11 @@ ${escapeHtml(data.address)}
 
 <p>
 <strong>Purchase price:</strong>
-${data.purchase_price !== null
-? "$"+Number(data.purchase_price).toLocaleString()
-: "Not provided"}
-</p>
-
-<p>
-<strong>Comparable sales:</strong>
-Research required
-</p>
-
-<p>
-<strong>Estimated repairs:</strong>
-Research required
-</p>
-
-<p>
-<strong>Potential issues:</strong>
-Verify independently
+${
+data.purchase_price !== null
+?Number(data.purchase_price).toLocaleString()
+:"Not provided"
+}
 </p>
 
 <p class="muted">
@@ -1792,9 +1602,7 @@ This report is stored in your Propelora account.
 
 `;
 
-
 updateCounts();
-
 renderReports();
 
 }
@@ -1802,13 +1610,9 @@ renderReports();
 
 function renderReports(){
 
-const box =
-document.getElementById("reportsList");
+const box=document.getElementById("reportsList");
 
-
-if(!box)
-return;
-
+if(!box)return;
 
 if(reports.length===0){
 
@@ -1819,15 +1623,12 @@ return;
 
 }
 
-
 box.innerHTML=
 reports.map(function(r){
 
-const date =
-r.created_at
-? new Date(r.created_at).toLocaleDateString()
-: "";
-
+const date=r.created_at
+?new Date(r.created_at).toLocaleDateString()
+:"";
 
 return `
 
@@ -1845,13 +1646,9 @@ ${escapeHtml(r.address)}
 <strong>Purchase price:</strong>
 ${
 r.purchase_price !== null
-? Number(r.purchase_price).toLocaleString()
-: "Not provided"
+?Number(r.purchase_price).toLocaleString()
+:"Not provided"
 }
-</p>
-
-<p class="muted">
-Research report saved to your account.
 </p>
 
 </div>
@@ -1863,36 +1660,25 @@ Research report saved to your account.
 }
 
 
-/* -------------------------
-   SAVED SEARCHES
-------------------------- */
+/* SAVED SEARCHES */
 
 async function loadSavedSearches(){
 
-if(!currentUser)
-return;
+if(!currentUser)return;
 
-
-const {data,error} =
+const {data,error}=
 await supabaseClient
 .from("saved_searches")
 .select("*")
 .eq("user_id",currentUser.id)
 .order("created_at",{ascending:false});
 
-
 if(error){
 
 console.error(error);
-
-document.getElementById("savedList")
-.innerHTML=
-'<p class="error">Could not load saved searches.</p>';
-
 return;
 
 }
-
 
 savedSearches=data || [];
 
@@ -1903,15 +1689,14 @@ renderSaved();
 
 async function saveSearch(){
 
-const errorBox =
+const errorBox=
 document.getElementById("searchError");
 
-const successBox =
+const successBox=
 document.getElementById("searchSuccess");
 
 errorBox.textContent="";
 successBox.textContent="";
-
 
 if(!currentUser){
 
@@ -1922,15 +1707,11 @@ return;
 
 }
 
+const name=
+document.getElementById("searchName").value.trim();
 
-const name =
-document.getElementById("searchName")
-.value.trim();
-
-const location =
-document.getElementById("searchLocation")
-.value.trim();
-
+const location=
+document.getElementById("searchLocation").value.trim();
 
 if(!name || !location){
 
@@ -1941,66 +1722,46 @@ return;
 
 }
 
-
-const button =
+const button=
 document.getElementById("searchButton");
 
 button.disabled=true;
+button.textContent="Saving...";
 
-button.textContent=
-"Saving...";
-
-
-const {data,error} =
+const {data,error}=
 await supabaseClient
 .from("saved_searches")
 .insert({
 
 user_id:currentUser.id,
-
 search_name:name,
-
 location:location
 
 })
 .select()
 .single();
 
-
 button.disabled=false;
-
-button.textContent=
-"Save Search";
-
+button.textContent="Save Search";
 
 if(error){
 
-console.error(error);
-
 errorBox.textContent=
-"Could not save search: " +
-error.message;
+"Could not save search: "+error.message;
 
 return;
 
 }
 
-
 savedSearches.unshift(data);
 
-
-document.getElementById("searchName")
-.value="";
-
-document.getElementById("searchLocation")
-.value="";
-
+document.getElementById("searchName").value="";
+document.getElementById("searchLocation").value="";
 
 successBox.textContent=
 "Saved search created successfully.";
 
 renderSaved();
-
 updateCounts();
 
 }
@@ -2008,48 +1769,34 @@ updateCounts();
 
 async function deleteSearch(id){
 
-if(!currentUser)
+if(!currentUser)return;
+
+if(!confirm("Delete this saved search?"))
 return;
 
-
-const confirmed =
-confirm("Delete this saved search?");
-
-
-if(!confirmed)
-return;
-
-
-const {error} =
+const {error}=
 await supabaseClient
 .from("saved_searches")
 .delete()
 .eq("id",id)
 .eq("user_id",currentUser.id);
 
-
 if(error){
 
 alert(
-"Could not delete search: " +
-error.message
+"Could not delete search: "+error.message
 );
 
 return;
 
 }
 
-
-savedSearches =
+savedSearches=
 savedSearches.filter(function(search){
-
-return search.id !== id;
-
+return search.id!==id;
 });
 
-
 renderSaved();
-
 updateCounts();
 
 }
@@ -2057,13 +1804,9 @@ updateCounts();
 
 function renderSaved(){
 
-const box =
-document.getElementById("savedList");
+const box=document.getElementById("savedList");
 
-
-if(!box)
-return;
-
+if(!box)return;
 
 if(savedSearches.length===0){
 
@@ -2074,15 +1817,12 @@ return;
 
 }
 
-
 box.innerHTML=
 savedSearches.map(function(s){
 
-const date =
-s.created_at
-? new Date(s.created_at).toLocaleDateString()
-: "";
-
+const date=s.created_at
+?new Date(s.created_at).toLocaleDateString()
+:"";
 
 return `
 
@@ -2115,50 +1855,231 @@ Delete Search
 }
 
 
-/* -------------------------
-   COUNTS
-------------------------- */
+/* ALERTS */
 
-function updateCounts(){
+async function loadAlerts(){
 
-document.getElementById("propertyCount")
-.textContent=
-reports.length;
+if(!currentUser)return;
 
-document.getElementById("reportCount")
-.textContent=
-reports.length;
-
-document.getElementById("searchCount")
-.textContent=
-savedSearches.length;
-
-}
-
-
-/* -------------------------
-   SESSION CHECK
-------------------------- */
-
-async function checkSession(){
-
-const {data,error} =
-await supabaseClient.auth.getSession();
-
+const {data,error}=
+await supabaseClient
+.from("property_alerts")
+.select("*")
+.eq("user_id",currentUser.id)
+.order("created_at",{ascending:false});
 
 if(error){
 
 console.error(error);
 
+document.getElementById("alertsList").innerHTML=
+'<p class="error">Could not load alerts.</p>';
+
 return;
 
 }
 
+alerts=data || [];
+
+renderAlerts();
+
+}
+
+
+async function createTestAlert(){
+
+const errorBox=
+document.getElementById("alertError");
+
+const successBox=
+document.getElementById("alertSuccess");
+
+errorBox.textContent="";
+successBox.textContent="";
+
+if(!currentUser){
+
+errorBox.textContent=
+"You must be logged in.";
+
+return;
+
+}
+
+const {data,error}=
+await supabaseClient
+.from("property_alerts")
+.insert({
+
+user_id:currentUser.id,
+
+title:"New Property Match",
+
+address:"123 Example Street, Lima, OH",
+
+price:79900,
+
+alert_type:"New Property"
+
+})
+.select()
+.single();
+
+if(error){
+
+errorBox.textContent=
+"Could not create alert: "+error.message;
+
+return;
+
+}
+
+alerts.unshift(data);
+
+successBox.textContent=
+"Test alert created successfully.";
+
+renderAlerts();
+updateCounts();
+
+}
+
+
+async function deleteAlert(id){
+
+if(!currentUser)return;
+
+if(!confirm("Delete this alert?"))
+return;
+
+const {error}=
+await supabaseClient
+.from("property_alerts")
+.delete()
+.eq("id",id)
+.eq("user_id",currentUser.id);
+
+if(error){
+
+alert(
+"Could not delete alert: "+error.message
+);
+
+return;
+
+}
+
+alerts=
+alerts.filter(function(alert){
+return alert.id!==id;
+});
+
+renderAlerts();
+updateCounts();
+
+}
+
+
+function renderAlerts(){
+
+const box=document.getElementById("alertsList");
+
+if(!box)return;
+
+if(alerts.length===0){
+
+box.innerHTML=
+'<div class="empty">No property alerts yet.</div>';
+
+return;
+
+}
+
+box.innerHTML=
+alerts.map(function(a){
+
+const date=a.created_at
+?new Date(a.created_at).toLocaleDateString()
+:"";
+
+return `
+
+<div class="property-card">
+
+<span class="badge">
+${escapeHtml(a.alert_type || "Property Alert")}
+</span>
+
+<h3>
+${escapeHtml(a.title)}
+</h3>
+
+<p>
+<strong>Address:</strong>
+${escapeHtml(a.address)}
+</p>
+
+<p>
+<strong>Price:</strong>
+${
+a.price !== null
+?Number(a.price).toLocaleString()
+:"Not provided"
+}
+</p>
+
+<p class="muted">
+Created ${escapeHtml(date)}
+</p>
+
+<button
+class="delete-btn"
+onclick="deleteAlert(${Number(a.id)})">
+Delete Alert
+</button>
+
+</div>
+
+`;
+
+}).join("");
+
+}
+
+
+/* COUNTS */
+
+function updateCounts(){
+
+document.getElementById("propertyCount").textContent=
+reports.length;
+
+document.getElementById("reportCount").textContent=
+reports.length;
+
+document.getElementById("alertCount").textContent=
+alerts.length;
+
+}
+
+
+/* SESSION */
+
+async function checkSession(){
+
+const {data,error}=
+await supabaseClient.auth.getSession();
+
+if(error){
+
+console.error(error);
+return;
+
+}
 
 if(data.session){
 
-currentUser=
-data.session.user;
+currentUser=data.session.user;
 
 await openDashboard();
 
@@ -2187,3 +2108,4 @@ checkSession();
 
 </body>
 </html>
+```
